@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 export default function Home() {
   const products = [
@@ -6,77 +6,67 @@ export default function Home() {
       id: 1,
       name: "Buzsu 6 Aşamalı Filtre Seti",
       price: 1699,
-      image: "https://images.unsplash.com/photo-1581091215367-59ab6b7b9d7b"
+      image: "https://picsum.photos/400/300?random=1",
     },
     {
       id: 2,
       name: "LG Chem 5 Filtre",
       price: 1299,
-      image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db"
+      image: "https://picsum.photos/400/300?random=2",
     }
-  ]
+  ];
 
   return (
     <div className="bg-gray-100 min-h-screen">
 
       {/* HEADER */}
-      <header className="bg-white p-3 flex justify-between items-center shadow">
-        <h1 className="text-orange-500 text-xl font-bold">BUZSU</h1>
+      <header className="bg-white p-4 shadow flex justify-between items-center">
+        <h1 className="text-orange-500 text-2xl font-bold">BUZSU</h1>
 
         <input
           className="border p-2 rounded w-1/2"
           placeholder="Ürün ara..."
         />
 
-        <Link href="/cart">
-          <div className="text-xl cursor-pointer">🛒</div>
-        </Link>
+        <div>🛒</div>
       </header>
 
       {/* BANNER */}
-      <div className="bg-orange-500 text-white text-center p-2 font-semibold">
+      <div className="bg-orange-500 text-white text-center py-3 font-semibold">
         %10 İndirim Fırsatı!
       </div>
 
-      {/* ÜRÜNLER */}
-      <div className="grid grid-cols-2 gap-4 p-4 items-stretch">
+      {/* PRODUCT GRID */}
+      <div className="grid grid-cols-2 gap-4 p-4">
 
         {products.map((p) => (
           <Link key={p.id} href={`/product/${p.id}`}>
-            <div className="bg-white p-3 rounded shadow cursor-pointer flex flex-col justify-between h-full">
 
-              {/* RESİM */}
+            <div className="bg-white p-3 rounded shadow">
+
               <img
                 src={p.image}
-                className="w-full h-40 object-cover rounded bg-gray-200"
-                onError={(e) => {
-                  e.currentTarget.src =
-                    "https://images.unsplash.com/photo-1581091215367-59ab6b7b9d7b"
-                }}
+                className="w-full h-40 object-cover rounded"
               />
 
-              {/* BİLGİ */}
-              <div>
-                <h3 className="mt-2 font-semibold min-h-[48px]">
-                  {p.name}
-                </h3>
+              <h2 className="font-bold mt-2">
+                {p.name}
+              </h2>
 
-                <p className="text-orange-600 font-bold">
-                  {p.price} TL
-                </p>
-              </div>
+              <p className="text-orange-500 font-bold text-lg">
+                {p.price} TL
+              </p>
 
-              {/* BUTON */}
-              <button className="bg-orange-500 text-white w-full mt-2 p-2 rounded">
+              <button className="bg-orange-500 text-white w-full py-2 mt-2 rounded">
                 Sepete Ekle
               </button>
 
             </div>
+
           </Link>
         ))}
 
       </div>
-
     </div>
-  )
+  );
 }
