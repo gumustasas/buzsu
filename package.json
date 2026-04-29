@@ -1,13 +1,45 @@
-{
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "lucide-react": "latest"
-  }
+export default function Home() {
+  const products = [
+    {
+      id: 1,
+      name: "6 Aşamalı Filtre Seti",
+      price: "1.699 TL",
+      image: "https://via.placeholder.com/300"
+    },
+    {
+      id: 2,
+      name: "LG Chem 5 Filtre",
+      price: "1.299 TL",
+      image: "https://via.placeholder.com/300"
+    }
+  ];
+
+  return (
+    <div className="bg-gray-100 min-h-screen">
+
+      <header className="bg-white p-4 shadow flex justify-between">
+        <h1 className="text-orange-500 font-bold">BUZSU</h1>
+        <input className="border p-2 rounded w-1/2" placeholder="Ara..." />
+        <div>🛒</div>
+      </header>
+
+      <div className="bg-orange-500 text-white text-center p-3 font-bold">
+        %10 İndirim Fırsatı
+      </div>
+
+      <div className="grid grid-cols-2 gap-4 p-4">
+        {products.map(p => (
+          <div key={p.id} className="bg-white p-3 rounded shadow">
+            <img src={p.image} className="w-full rounded" />
+            <h3 className="mt-2">{p.name}</h3>
+            <p className="text-orange-600 font-bold">{p.price}</p>
+            <button className="bg-orange-500 text-white w-full mt-2 p-2 rounded">
+              Sepete Ekle
+            </button>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  );
 }
