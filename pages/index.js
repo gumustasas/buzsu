@@ -6,7 +6,7 @@ export default function Home() {
       id: 1,
       name: "Buzsu 6 Aşamalı Filtre Seti",
       price: 1699,
-      image: "https://images.unsplash.com/photo-1581091870627-3c47f9e8c3e9"
+      image: "https://via.placeholder.com/300x300"
     },
     {
       id: 2,
@@ -39,25 +39,30 @@ export default function Home() {
       </div>
 
       {/* ÜRÜNLER */}
-      <div className="grid grid-cols-2 gap-4 p-4">
+      <div className="grid grid-cols-2 gap-4 p-4 items-stretch">
 
         {products.map((p) => (
           <Link key={p.id} href={`/product/${p.id}`}>
-            <div className="bg-white p-3 rounded shadow cursor-pointer">
+            <div className="bg-white p-3 rounded shadow cursor-pointer flex flex-col justify-between h-full">
 
+              {/* RESİM */}
               <img
                 src={p.image}
-                className="w-full h-40 object-cover rounded"
+                className="w-full h-40 object-cover rounded bg-gray-200"
               />
 
-              <h3 className="mt-2 font-semibold">
-                {p.name}
-              </h3>
+              {/* İÇERİK */}
+              <div>
+                <h3 className="mt-2 font-semibold min-h-[48px]">
+                  {p.name}
+                </h3>
 
-              <p className="text-orange-600 font-bold">
-                {p.price} TL
-              </p>
+                <p className="text-orange-600 font-bold">
+                  {p.price} TL
+                </p>
+              </div>
 
+              {/* BUTON */}
               <button className="bg-orange-500 text-white w-full mt-2 p-2 rounded">
                 Sepete Ekle
               </button>
