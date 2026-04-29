@@ -49,6 +49,10 @@ export default function Home() {
               <img
                 src={p.image}
                 className="w-full h-40 object-cover rounded bg-gray-200"
+                onError={(e) => {
+                  e.currentTarget.src =
+                    "https://images.unsplash.com/photo-1581091215367-59ab6b7b9d7b"
+                }}
               />
 
               {/* BİLGİ */}
@@ -75,4 +79,4 @@ export default function Home() {
 
     </div>
   )
-} 
+}
