@@ -6,7 +6,7 @@ export default function Home() {
       id: 1,
       name: "Buzsu 6 Aşamalı Filtre Seti",
       price: 1699,
-      image: "https://via.placeholder.com/300x300"
+      image: "https://images.unsplash.com/photo-1581091215367-59ab6b7b9d7b"
     },
     {
       id: 2,
@@ -51,7 +51,7 @@ export default function Home() {
                 className="w-full h-40 object-cover rounded bg-gray-200"
               />
 
-              {/* İÇERİK */}
+              {/* BİLGİ */}
               <div>
                 <h3 className="mt-2 font-semibold min-h-[48px]">
                   {p.name}
